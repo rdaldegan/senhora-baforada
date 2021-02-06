@@ -5,6 +5,7 @@ import styled, { ThemeContext } from 'styled-components';
 import MenuButton from '../MenuButton';
 import SearchBar from '../SearchBar';
 import MenuItem from '../MenuItem';
+import { NavBarItems } from '../BottomBar';
 
 const Nav = styled.nav`
   position: absolute;
@@ -19,34 +20,37 @@ const Nav = styled.nav`
   @media screen and (min-width: 900px){
       display: none;
   }
+`;
 
-  .background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 300px;
-  }
-
-  .menuList {
-    margin: 0;
-    padding: 0;
-    padding: 25px;
-    position: absolute;
-    top: 100px;
-    width: 230px;
-  }
-
-  .menusDivisor{
-    margin: 30px 0px 30px 0px;
-    border-color: ${({ theme }) => theme.colors.primary};
-  }
+const Background = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  height: 100%;
 `;
 
 const SearchDiv = styled.div`
+  display: ${(props) => props.display};
   position: absolute;
   top: 70px;
   width: 70%;
+`;
+
+const UL = styled.ul`
+  display: ${(props) => props.display};
+  margin: 0;
+  padding: 0;
+  padding: 25px;
+  position: absolute;
+  top: 100px;
+  width: 230px;
+
+  hr{
+    margin: 30px 0px 30px 0px;
+    border-color: ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 const ulVariants = {
@@ -80,21 +84,15 @@ const MainItems = [
   { itemName: 'Carrinho', href: '/' },
 ];
 
-const NavBarItems = [
-  { itemName: 'Sedas', href: '/' },
-  { itemName: 'Bongs', href: '/' },
-  { itemName: 'Tabacos', href: '/' },
-  { itemName: 'Cachimbos', href: '/' },
-  { itemName: 'Acessórios', href: '/' },
-];
+const categorieItems = NavBarItems;
 
 export default function SideMenu() {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const themeContext = useContext(ThemeContext);
 
   const sidebar = {
-    open: (height = 1000) => ({
-      clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+    open: (height = 3000) => ({
+      clipPath: `circle(${height}px at 40px 40px)`,
       transition: {
         type: 'spring',
         stiffness: 20,
@@ -115,11 +113,11 @@ export default function SideMenu() {
 
   return (
     <Nav as={motion.nav} initial={false} animate={isOpen ? 'open' : 'closed'}>
-      <motion.div className="background" variants={sidebar} />
-      <SearchDiv as={motion.div} variants={variants}>
+      <Background as={motion.div} variants={sidebar} />
+      <SearchDiv as={motion.div} variants={variants} display={isOpen ? 'flex' : 'none'}>
         <SearchBar />
       </SearchDiv>
-      <motion.ul className="menuList" variants={ulVariants}>
+      <UL as={motion.ul} variants={ulVariants} display={isOpen ? 'colum' : 'none'}>
         {MainItems.map((item) => (
           <MenuItem
             itemName={item.itemName}
@@ -129,7 +127,7 @@ export default function SideMenu() {
           />
         ))}
         <motion.hr className="menusDivisor" variants={variants} />
-        {NavBarItems.map((item) => (
+        {categorieItems.map((item) => (
           <MenuItem
             itemName={item.itemName}
             key={item.itemName}
@@ -137,8 +135,7 @@ export default function SideMenu() {
             variants={variants}
           />
         ))}
-      </motion.ul>
-
+      </UL>
       <MenuButton toggle={() => toggleOpen()} variants={isOpen} />
     </Nav>
   );

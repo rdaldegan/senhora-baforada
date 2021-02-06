@@ -11,18 +11,10 @@ const Container = styled.nav`
   display: flex;
   align-items: center;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-between;
-
-  .searchDiv{
-    width: 40%;
-    
-    @media screen and (max-width: 900px){
-      display: none;
-    }
-  }
   
-  @media screen and (max-width: 1425px) {
+  @media screen and (max-width: 1000px) {
     flex-direction: column;
     justify-content: center;
   }
@@ -31,48 +23,64 @@ const Container = styled.nav`
     height: 200px;
     flex-direction: row-reverse;
     justify-content: right;
+    padding: 50px;
   }
 `;
 
-const HomeLink = styled.span` 
+const HomeLink = styled.span`
+  width: 30%;
   img{
-    width: 250px;
+    width: 100%;
   }
   @media screen and (max-width: 900px) {
     img{
       width: 150px;
+      position: absolute;
+      top: 25px;
+      left: 50%;
+      margin-left: -75px;
     };
   }
 `;
 
-const Icon = styled.img`
-  width: 50px;
+const SearchDiv = styled.div`
+  width: 30%;
+  @media screen and (max-width: 900px){
+    display: none;
+  }
 `;
 
 const List = styled.ul`
+  width: 30%;
+  padding-left: 0px;
+  
   display: flex;
+  flex-direction: row;
   list-style: none;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 
-  li{
+  img{
+    width: 50px;
   }
   
   button{
     background: none;
     border: none;
     font-family: 'Lato', sans-serif;
-    margin: 0px 30px;
     padding-bottom: 10px;
     color: ${({ theme }) => theme.colors.primary};
-    font-size: 20px;
+    font-size: 2vh;
     font-weight: bolder;
     :hover{
       cursor: pointer;
       border-bottom: 4px solid ${({ theme }) => theme.colors.primary};
       border-radius: 15%;
       transition: 0.2s;
+    }    
+    :focus{
+      outline: none;
     }
   }
 
@@ -81,7 +89,7 @@ const List = styled.ul`
   }
 `;
 
-const cartIconStates = {
+export const cartIconStates = {
   MOUSE_OUT: '/cart.svg',
   MOUSE_OVER: '/cart-clicked.svg',
 };
@@ -98,9 +106,9 @@ export default function MainSection() {
           </a>
         </Link>
       </HomeLink>
-      <div className="searchDiv">
+      <SearchDiv>
         <SearchBar />
-      </div>
+      </SearchDiv>
       <List>
         <motion.li
           whileHover={{ scale: 1.2 }}
@@ -109,7 +117,7 @@ export default function MainSection() {
           onMouseOut={() => setCartIconRef(cartIconStates.MOUSE_OUT)}
         >
           <button type="button">
-            <Icon src={cartIconRef} alt="Icone do botão de caarrinho" />
+            <img src={cartIconRef} alt="Icone do botão de carrinho" />
           </button>
         </motion.li>
         <motion.li whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.95 }}>

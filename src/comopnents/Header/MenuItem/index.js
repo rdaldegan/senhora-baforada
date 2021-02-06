@@ -23,7 +23,6 @@ const Li = styled.li`
     color:  ${({ theme }) => theme.colors.primary};
     text-decoration: none;
     font-family: 'Lato', sans-serif;
-    font-size: 20px;
     font-weight: bolder;
   }
 `;

@@ -76,6 +76,7 @@ export default function App({ Component, pageProps }) {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header />
+        <Component {...pageProps} />
       </ThemeProvider>
     </>
   );

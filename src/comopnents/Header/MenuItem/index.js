@@ -11,19 +11,17 @@ const Li = styled.li`
   cursor: pointer;
 
   a {
-    border: 2px solid ${({ theme }) => theme.colors.primary};
-    border-radius: 5px;
+    border: 2px solid ${({ theme }) => theme.colors.headerMainButtons};
+    border-radius: ${({ theme }) => theme.borderRadius};
     width: 200px;
     height: 20px;
-    flex: 1;
     padding: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color:  ${({ theme }) => theme.colors.primary};
+    color:  ${({ theme }) => theme.colors.headerMainButtons};
     text-decoration: none;
-    font-family: ${({ theme }) => theme.fontFamily};
-    font-weight: bolder;
+    font-weight: bold;
   }
 `;
 

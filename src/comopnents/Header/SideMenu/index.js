@@ -49,13 +49,13 @@ const UL = styled.ul`
 
   hr{
     margin: 30px 0px 30px 0px;
-    border-color: ${({ theme }) => theme.colors.primary};
+    border-color: ${({ theme }) => theme.colors.headerMainButtons};
   }
 `;
 
 const ulVariants = {
   open: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+    transition: { staggerChildren: 0.05, delayChildren: 0.1 },
   },
   closed: {
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
@@ -95,15 +95,14 @@ export default function SideMenu() {
       clipPath: `circle(${height}px at 40px 40px)`,
       transition: {
         type: 'spring',
-        stiffness: 20,
+        stiffness: 60,
         restDelta: 2,
       },
-      backgroundColor: themeContext.colors.secondary,
+      backgroundColor: themeContext.colors.headerMainBg,
     }),
     closed: {
       clipPath: 'circle(30px at 40px 40px)',
       transition: {
-        delay: 0.5,
         type: 'spring',
         stiffness: 400,
         damping: 40,

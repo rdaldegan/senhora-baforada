@@ -6,6 +6,9 @@ import Header from '../src/comopnents/Header';
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
+    :focus{
+      outline: none;
+    }
   }
   body {
     margin: 0;
@@ -14,8 +17,7 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     flex-direction: column;
     font-family: 'Lato', sans-serif;
-    // Deixa branco no começo
-    color: ${({ theme }) => theme.colors.contrastText};
+    
   }
   html, body {
     min-height: 100vh;
@@ -35,6 +37,7 @@ const theme = {
     headerMainButtons: '#ec8b3b',
     headerMainBg: '#181818',
     headerTopBg: '#222222',
+    headerBottomBg: '#181818',
 
     searchBar: '#BBBBBB',
     darkBg: '#181818',
@@ -55,7 +58,7 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>Senhora Baforada</title>
-        <link rel="icon" href="/icon-square.ico" />
+        <link rel="icon" href="/logo.svg" />
         <title>Senhora Baforada</title>
         <meta name="title" content="Senhora Baforada" />
         <meta name="description" content="Charutos, tabacos naturais, cachimbos, rapés, acessórios e muito mais." />

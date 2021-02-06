@@ -5,9 +5,6 @@ import styled from 'styled-components';
 const StyledButton = styled.button`
     outline: none;
     border: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     cursor: pointer;
     position: absolute;
     top: 18px;

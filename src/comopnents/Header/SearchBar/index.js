@@ -18,9 +18,6 @@ const Input = styled.input`
   padding-right: 5px;
   border-radius: ${({ theme }) => theme.borderRadius};
   background-color: ${({ theme }) => theme.colors.searchBar};
-  :focus{
-    outline: none;
-  }
 `;
 
 const SearchButton = styled.button`
@@ -28,12 +25,7 @@ const SearchButton = styled.button`
   border-radius: ${({ theme }) => theme.borderRadius};
   background: none;
   width: 50px;
-  :focus{
-    outline: none;
-  }
-  :hover{
-    cursor: pointer;
-  }
+  cursor: pointer;
 
   img{
     width:30px;

@@ -9,6 +9,7 @@ const Container = styled.div`
   justify-content: center; 
   align-items: center;
   border-top: 3px solid ${({ theme }) => theme.colors.headerMainButtons};
+  background-color: ${({ theme }) => theme.colors.headerBottomBg};
 
   @media screen and (max-width: 900px){
     display: none;
@@ -20,7 +21,6 @@ const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-around;
-
   ul{
     flex: 1;
     display: flex;
@@ -30,12 +30,9 @@ const Nav = styled.nav`
     
   }
   li{
-    font-family: ${({ theme }) => theme.fontFamily};
     color: ${({ theme }) => theme.colors.headerMainButtons};
     font-weight: bolder;
-    :hover{
-      cursor: pointer;
-    }
+    cursor: pointer;
   }
 `;
 
@@ -56,7 +53,7 @@ export default function BottomBar() {
           {NavBarItems.map((item) => (
             <motion.li
               key={item.itemName}
-              whileHover={{ scale: 1.2 }}
+              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
               {item.itemName.toUpperCase()}

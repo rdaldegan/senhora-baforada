@@ -84,16 +84,12 @@ const List = styled.ul`
     font-family: ${({ theme }) => theme.fontFamily};
     padding-bottom: 10px;
     color: ${({ theme }) => theme.colors.headerMainButtons};
-    font-size: 2vh;
-    font-weight: bolder;
+    font-size: 110%;
+    font-weight: bold;
+    cursor: pointer;
     :hover{
-      cursor: pointer;
       border-bottom: 4px solid ${({ theme }) => theme.colors.headerMainButtons};
       border-radius: 5%;
-      transition: 0.2s;
-    }    
-    :focus{
-      outline: none;
     }
   }
 
@@ -124,7 +120,8 @@ export default function MainSection() {
           whileTap={{ scale: 0.95 }}
         >
           <button type="button">
-            <img src={cartIconRef} className="cart-icon" alt="Icone do botão de carrinho" />
+            <img src={profileIconRef} className="profile-icon" alt="Icone do botão de carrinho" />
+            <span>Minha Conta</span>
           </button>
         </motion.li>
         <motion.li
@@ -132,8 +129,7 @@ export default function MainSection() {
           whileTap={{ scale: 0.95 }}
         >
           <button type="button">
-            <img src={profileIconRef} className="profile-icon" alt="Icone do botão de carrinho" />
-            <span>Minha Conta</span>
+            <img src={cartIconRef} className="cart-icon" alt="Icone do botão de carrinho" />
           </button>
         </motion.li>
       </List>

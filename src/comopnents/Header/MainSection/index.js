@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -68,7 +68,7 @@ const List = styled.ul`
       justify-content: center;
     }
     .cart-icon{
-        width: 50px;
+        width: 40px;
     }
     .profile-icon{
       width: 30px;
@@ -120,7 +120,7 @@ export default function MainSection() {
       </SearchDiv>
       <List>
         <motion.li
-          whileHover={{ scale: 1.2 }}
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           <button type="button">
@@ -128,7 +128,7 @@ export default function MainSection() {
           </button>
         </motion.li>
         <motion.li
-          whileHover={{ scale: 1.2 }}
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           <button type="button">

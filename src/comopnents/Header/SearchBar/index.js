@@ -40,7 +40,7 @@ const SearchButton = styled.button`
   }
 `;
 
-const searchIconRef = '/sherlock-holmes-clicked.svg';
+const searchIconRef = '/sherlock-holmes.svg';
 
 export default function SearchBar() {
   return (

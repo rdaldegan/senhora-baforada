@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const Nav = styled.nav`
   height: 40px;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.greyBg};
+  background-color: ${({ theme }) => theme.colors.headerTopBg};
   display: flex;
   justify-content: center; 
   ul{
@@ -21,7 +21,7 @@ const Nav = styled.nav`
     padding: 0 30px;
 
     & + li{
-      border-left: 2px solid  ${({ theme }) => theme.colors.greyBg};
+      border-left: 2px solid #84747c;
     }
 
     a{

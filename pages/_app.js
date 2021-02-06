@@ -34,6 +34,7 @@ const theme = {
     secondary: '#436bb2',
     headerMainButtons: '#ec8b3b',
     headerMainBg: '#181818',
+    headerTopBg: '#222222',
 
     searchBar: '#BBBBBB',
     darkBg: '#181818',
@@ -72,7 +73,7 @@ export default function App({ Component, pageProps }) {
         <meta property="twitter:image" content="logo.jpg" />
 
         <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
       </Head>
 
       <ThemeProvider theme={theme}>

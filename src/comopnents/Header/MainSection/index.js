@@ -61,22 +61,35 @@ const List = styled.ul`
   align-items: center;
   justify-content: space-around;
 
-  img{
-    width: 50px;
+  li{
+    button{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cart-icon{
+        width: 50px;
+    }
+    .profile-icon{
+      width: 30px;
+      padding: 0px;
+      margin:0px;
+      padding-right: 5px;
+    }
   }
   
   button{
     background: none;
     border: none;
-    font-family: 'Lato', sans-serif;
+    font-family: ${({ theme }) => theme.fontFamily};
     padding-bottom: 10px;
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.headerMainButtons};
     font-size: 2vh;
     font-weight: bolder;
     :hover{
       cursor: pointer;
-      border-bottom: 4px solid ${({ theme }) => theme.colors.primary};
-      border-radius: 15%;
+      border-bottom: 4px solid ${({ theme }) => theme.colors.headerMainButtons};
+      border-radius: 5%;
       transition: 0.2s;
     }    
     :focus{
@@ -89,20 +102,16 @@ const List = styled.ul`
   }
 `;
 
-export const cartIconStates = {
-  MOUSE_OUT: '/cart.svg',
-  MOUSE_OVER: '/cart-clicked.svg',
-};
+export const cartIconRef = '/cart.svg';
+export const profileIconRef = '/avatar.svg';
 
 export default function MainSection() {
-  const [cartIconRef, setCartIconRef] = useState(cartIconStates.MOUSE_OUT);
-
   return (
     <Container>
       <HomeLink>
         <Link href="/">
           <a href="/">
-            <img src="/logo-nome.jpg" alt="Logo da Senhora Baforada" />
+            <img src="/logo-nome.svg" alt="Logo da Senhora Baforada" />
           </a>
         </Link>
       </HomeLink>
@@ -113,16 +122,18 @@ export default function MainSection() {
         <motion.li
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.95 }}
-          onMouseOver={() => setCartIconRef(cartIconStates.MOUSE_OVER)}
-          onMouseOut={() => setCartIconRef(cartIconStates.MOUSE_OUT)}
         >
           <button type="button">
-            <img src={cartIconRef} alt="Icone do botão de carrinho" />
+            <img src={cartIconRef} className="cart-icon" alt="Icone do botão de carrinho" />
           </button>
         </motion.li>
-        <motion.li whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.95 }}>
+        <motion.li
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.95 }}
+        >
           <button type="button">
-            Minha Conta
+            <img src={profileIconRef} className="profile-icon" alt="Icone do botão de carrinho" />
+            <span>Minha Conta</span>
           </button>
         </motion.li>
       </List>

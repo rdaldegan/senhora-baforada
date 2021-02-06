@@ -7,7 +7,8 @@ const Container = styled.div`
   height: 50px;
   display: flex;
   justify-content: center; 
-  border-top: 3px solid ${({ theme }) => theme.colors.primary};
+  align-items: center;
+  border-top: 3px solid ${({ theme }) => theme.colors.headerMainButtons};
 
   @media screen and (max-width: 900px){
     display: none;
@@ -29,9 +30,8 @@ const Nav = styled.nav`
     
   }
   li{
-    font-family: 'Lato', sans-serif;
-    padding-bottom: 10px;
-    color: ${({ theme }) => theme.colors.primary};
+    font-family: ${({ theme }) => theme.fontFamily};
+    color: ${({ theme }) => theme.colors.headerMainButtons};
     font-weight: bolder;
     :hover{
       cursor: pointer;
@@ -59,7 +59,7 @@ export default function BottomBar() {
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.95 }}
             >
-              {item.itemName}
+              {item.itemName.toUpperCase()}
             </motion.li>
           ))}
         </ul>

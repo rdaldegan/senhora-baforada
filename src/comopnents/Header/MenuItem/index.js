@@ -22,7 +22,7 @@ const Li = styled.li`
     justify-content: center;
     color:  ${({ theme }) => theme.colors.primary};
     text-decoration: none;
-    font-family: 'Lato', sans-serif;
+    font-family: ${({ theme }) => theme.fontFamily};
     font-weight: bolder;
   }
 `;

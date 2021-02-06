@@ -8,7 +8,7 @@ const InputDiv = styled.div`
   display: flex;
   flex-direction: row;
   border-radius: ${({ theme }) => theme.borderRadius};
-  background-color: ${({ theme }) => theme.colors.greyBg};
+  background-color: ${({ theme }) => theme.colors.searchBar};
 `;
 
 const Input = styled.input`
@@ -17,7 +17,7 @@ const Input = styled.input`
   padding-left: 20px;
   padding-right: 5px;
   border-radius: ${({ theme }) => theme.borderRadius};
-  background-color: ${({ theme }) => theme.colors.greyBg};
+  background-color: ${({ theme }) => theme.colors.searchBar};
   :focus{
     outline: none;
   }
@@ -40,21 +40,14 @@ const SearchButton = styled.button`
   }
 `;
 
-const searchIconStates = {
-  MOUSE_OUT: '/sherlock-holmes.svg',
-  MOUSE_OVER: '/sherlock-holmes-clicked.svg',
-};
+const searchIconRef = '/sherlock-holmes-clicked.svg';
 
 export default function SearchBar() {
-  const [searchIconRef, setSearchIconRef] = useState(searchIconStates.MOUSE_OUT);
-
   return (
     <InputDiv>
       <Input type="text" placeholder="E ai? Quer baforar o que?" />
       <SearchButton
         type="button"
-        onMouseOver={() => setSearchIconRef(searchIconStates.MOUSE_OVER)}
-        onMouseOut={() => setSearchIconRef(searchIconStates.MOUSE_OUT)}
         as={motion.button}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 1 }}

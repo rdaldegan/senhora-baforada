@@ -5,9 +5,7 @@ import { motion } from 'framer-motion';
 const Nav = styled.nav`
   height: 40px;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.darkBg};
-  font-style: normal;
-  font-size: 17px;
+  background-color: ${({ theme }) => theme.colors.greyBg};
   display: flex;
   justify-content: center; 
   ul{
@@ -21,9 +19,6 @@ const Nav = styled.nav`
   }
   li{
     padding: 0 30px;
-    :hover{
-      cursor: pointer;
-    }
 
     & + li{
       border-left: 2px solid  ${({ theme }) => theme.colors.greyBg};
@@ -31,7 +26,7 @@ const Nav = styled.nav`
 
     a{
       text-decoration: none;
-      color: ${({ theme }) => theme.colors.primary};
+      color: ${({ theme }) => theme.colors.headerMainButtons};
     }
   }
 
@@ -63,7 +58,7 @@ export default function TopBar() {
             whileTap={{ color: themeContext.colors.primary }}
             transition={{ duration: 0 }}
           >
-            Contato
+            Home
           </motion.a>
         </li>
       </ul>

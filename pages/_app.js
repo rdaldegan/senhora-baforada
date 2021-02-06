@@ -32,14 +32,16 @@ const theme = {
   colors: {
     primary: '#ec8b3b',
     secondary: '#436bb2',
-    lightSecondary: '#5C81C1',
-    mainBg: '#FFFF',
-    greyBg: '#d4bcac',
-    darkBg: '#282828',
+    headerMainButtons: '#ec8b3b',
+    headerMainBg: '#181818',
+
+    searchBar: '#BBBBBB',
+    darkBg: '#181818',
     contrastText: '#87747c',
     wrong: '#f68911',
     success: '#4CAF50',
   },
+  fontFamily: 'Lato, sans-serif',
   mediaConfig: {
     wppLink: 'https://web.whatsapp.com/send?phone=5561983157060',
   },

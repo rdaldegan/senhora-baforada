@@ -10,7 +10,7 @@ const Background = styled.div`
   position: relative;
   height: 300px;
   width: 100%;
-  background: linear-gradient(180deg, ${({ theme }) => theme.colors.secondary} 0%, ${({ theme }) => theme.colors.lightSecondary} 100%);
+  background: ${({ theme }) => theme.colors.headerMainBg};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +20,7 @@ const Background = styled.div`
     height: 100px;
     flex-direction: row;
     justify-content: space-between;
-    border-bottom: 3px solid ${({ theme }) => theme.colors.primary};
+    border-bottom: 3px solid ${({ theme }) => theme.colors.headerMainButtons};
   }
 `;
 

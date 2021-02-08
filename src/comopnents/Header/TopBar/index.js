@@ -8,6 +8,7 @@ const Nav = styled.nav`
   background-color: ${({ theme }) => theme.colors.headerTopBg};
   display: flex;
   justify-content: center; 
+  align-items: center;
   ul{
     width: 80%;
     list-style: none;
@@ -48,17 +49,17 @@ export default function TopBar() {
             whileTap={{ color: themeContext.colors.primary }}
             transition={{ duration: 0 }}
           >
-            Contato
+            Whats App: xxxxx-xxxx
           </motion.a>
         </li>
         <li>
           <motion.a
-            href="/"
+            href="mailto:ra.fa.daldegan@hotmail.com"
             whileHover={{ color: themeContext.colors.greyBg }}
             whileTap={{ color: themeContext.colors.primary }}
             transition={{ duration: 0 }}
           >
-            Home
+            Email: exemplo@email.com
           </motion.a>
         </li>
       </ul>

@@ -20,7 +20,7 @@ const Nav = styled.nav`
   width: 80%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   ul{
     flex: 1;
     display: flex;
@@ -33,7 +33,6 @@ const Nav = styled.nav`
     color: ${({ theme }) => theme.colors.headerMainButtons};
     font-weight: bolder;
     cursor: pointer;
-  }
 `;
 
 export const NavBarItems = [

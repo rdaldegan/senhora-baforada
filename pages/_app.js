@@ -2,6 +2,7 @@ import React from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Head from 'next/head';
 import Header from '../src/comopnents/Header';
+import Footer from '../src/comopnents/Footer';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -64,16 +65,16 @@ export default function App({ Component, pageProps }) {
         <meta name="description" content="Charutos, tabacos naturais, cachimbos, rapés, acessórios e muito mais." />
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://github.com/rdaldegan/senhora-baforada" />
+        <meta property="og:url" content="https://senhora-baforada-git-main.rdaldegan.vercel.app/" />
         <meta property="og:title" content="Senhora Baforada" />
         <meta property="og:description" content="Charutos, tabacos naturais, cachimbos, rapés, acessórios e muito mais." />
-        <meta property="og:image" content="logo.jpg" />
+        <meta property="og:image" content="logo.svg" />
 
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://github.com/rdaldegan/senhora-baforada" />
+        <meta property="twitter:url" content="https://senhora-baforada-git-main.rdaldegan.vercel.app/" />
         <meta property="twitter:title" content="Senhora Baforada" />
         <meta property="twitter:description" content="Charutos, tabacos naturais, cachimbos, rapés, acessórios e muito mais." />
-        <meta property="twitter:image" content="logo.jpg" />
+        <meta property="twitter:image" content="logo.svg" />
 
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
@@ -83,6 +84,7 @@ export default function App({ Component, pageProps }) {
         <GlobalStyle />
         <Header />
         <Component {...pageProps} />
+        <Footer />
       </ThemeProvider>
     </>
   );

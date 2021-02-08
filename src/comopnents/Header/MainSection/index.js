@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -79,6 +79,7 @@ const List = styled.ul`
   }
   
   button{
+    position: relative;
     background: none;
     border: none;
     font-family: ${({ theme }) => theme.fontFamily};
@@ -92,16 +93,30 @@ const List = styled.ul`
       border-radius: 5%;
     }
   }
-
   @media screen and (max-width: 900px){
     display: none;
   }
+`;
+
+const ItemCounter = styled.span`
+  display: ${(props) => props.display};
+  position: absolute;
+  top: -5px;
+  left: 75%;
+  min-width: 25px;
+  min-height: 25px;
+  color: black;
+  background-color: red;
+  padding: 2px;
+  border-radius: 50%;
 `;
 
 export const cartIconRef = '/cart.svg';
 export const profileIconRef = '/avatar.svg';
 
 export default function MainSection() {
+  const [totalItems, setTotalItems] = useState(10);
+
   return (
     <Container>
       <HomeLink>
@@ -130,6 +145,9 @@ export default function MainSection() {
         >
           <button type="button">
             <img src={cartIconRef} className="cart-icon" alt="Icone do botão de carrinho" />
+            <ItemCounter display={totalItems === 0 ? 'none' : 'inline'}>
+              {totalItems}
+            </ItemCounter>
           </button>
         </motion.li>
       </List>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
@@ -37,7 +37,7 @@ const searchIconRef = '/sherlock-holmes.svg';
 export default function SearchBar() {
   return (
     <InputDiv>
-      <Input type="text" placeholder="E ai? Quer baforar o que?" />
+      <Input type="text" placeholder="Pesquise por nomes, marcas, tipos..." />
       <SearchButton
         type="button"
         as={motion.button}

@@ -68,13 +68,13 @@ export default function App({ Component, pageProps }) {
         <meta property="og:url" content="https://senhora-baforada-git-main.rdaldegan.vercel.app/" />
         <meta property="og:title" content="Senhora Baforada" />
         <meta property="og:description" content="Charutos, tabacos naturais, cachimbos, rapés, acessórios e muito mais." />
-        <meta property="og:image" content="logo.svg" />
+        <meta property="og:image" content="logo.jpg" />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://senhora-baforada-git-main.rdaldegan.vercel.app/" />
         <meta property="twitter:title" content="Senhora Baforada" />
         <meta property="twitter:description" content="Charutos, tabacos naturais, cachimbos, rapés, acessórios e muito mais." />
-        <meta property="twitter:image" content="logo.svg" />
+        <meta property="twitter:image" content="logo.jpg" />
 
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />

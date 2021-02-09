@@ -37,13 +37,27 @@ const CategorieHeader = styled.header`
       padding-right: 10px;
     }
   }
+
+  @media screen and (max-width: 1350px){
+      flex-direction: column;
+      align-items: flex-start;
+      h2{
+        display: none;
+      }
+  }
 `;
 
-const ItemsList = styled.ul`
+const ItemsList = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   list-style: none;
+  margin-top: 30px;
+
+  @media screen and (max-width: 1350px){
+    flex-direction: column;
+    justify-content: space-around;
+  }
 `;
 
 const productList = [
@@ -53,7 +67,7 @@ const productList = [
   { id: 4, nome: 'Bong', descricao: 'Descricao do item', preco: 500, promocao: { status: true }, emEstoque: 13, src: '/bong.jpg' },
 ];
 
-export default function HomeCategories() {
+export default function HomeCategorie() {
   return (
     <Container>
       <CategorieHeader>

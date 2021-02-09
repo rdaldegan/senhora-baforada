@@ -67,6 +67,12 @@ const Card = styled.div`
     text-overflow: ellipsis;
     overflow: hidden; 
   }
+  
+  @media screen and (max-width: 1350px){
+    width: 250px;
+    height: 500px;
+  }
+
 `;
 
 const Promo = styled.span`
@@ -105,8 +111,6 @@ const ImgDiv = styled.div`
     visibility: hidden;
     opacity: 0;
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
 
     p{
       color: #FFFFFF;
@@ -117,7 +121,6 @@ const ImgDiv = styled.div`
       word-wrap: normal;
       text-overflow: ellipsis;
       overflow: hidden; 
-      font-size: 30px;
       max-height: 290px;
 
     }
@@ -145,10 +148,9 @@ export default function ProductCard({
         <h1 className="itemName">{nome}</h1>
         <h2>{`R$ ${(preco / 100).toFixed(2)}`}</h2>
         <div className="hoverDiv">
-          <input type="number" defaultValue={1} min={1} max={emEstoque} />
-          {emEstoque === 0
-            ? <button className="addToCart" type="button" disabled>Fora de estoque</button>
-            : <button className="addToCart" type="button" style={{ cursor: 'pointer' }}>Adicionar ao carrinho</button>}
+          {emEstoque === 0 && <button className="addToCart" type="button" disabled>Fora de estoque</button>}
+          {emEstoque !== 0 && <input type="number" defaultValue={1} min={1} max={emEstoque} />}
+          {emEstoque !== 0 && <button className="addToCart" type="button" style={{ cursor: 'pointer' }}>Adicionar ao carrinho</button>}
         </div>
       </div>
     </Card>

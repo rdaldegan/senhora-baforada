@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Carousel from '../src/comopnents/Carousel';
-import PromotionIteMs from '../src/comopnents/PromotionItems';
+import HomeCategorie from '../src/comopnents/HomeCategorie';
 import InstagramFeed from '../src/comopnents/InstagramFeed';
 
 const Container = styled.div`
@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <Container>
       <Carousel />
-      <PromotionIteMs />
+      <HomeCategorie />
       <InstagramFeed />
     </Container>
   );

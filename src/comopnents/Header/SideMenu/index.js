@@ -16,6 +16,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 100;
 
   @media screen and (min-width: 900px){
       display: none;
@@ -28,7 +29,7 @@ const Background = styled.div`
   left: 0;
   bottom: 0;
   width: 300px;
-  height: 100%;
+  height: 100vmax; 
 `;
 
 const SearchDiv = styled.div`
@@ -91,8 +92,8 @@ export default function SideMenu() {
   const themeContext = useContext(ThemeContext);
 
   const sidebar = {
-    open: (height = 3000) => ({
-      clipPath: `circle(${height}px at 40px 40px)`,
+    open: () => ({
+      clipPath: 'circle(120vmax at 40px 40px)',
       transition: {
         type: 'spring',
         stiffness: 60,

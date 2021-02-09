@@ -4,17 +4,15 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   width: 100%;
+  height: 400px;
   margin-top: 5px;
   margin-bottom: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 
 const CarouselItem = styled.div`
   position: relative;
-  height: 500px;
   width: 100%;
+  max-height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;

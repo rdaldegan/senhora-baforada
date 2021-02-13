@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { motion, useCycle } from 'framer-motion';
-import styled, { ThemeContext } from 'styled-components';
+import styled from 'styled-components';
 
-import MenuButton from '../MenuButton';
-import SearchBar from '../SearchBar';
-import MenuItem from '../MenuItem';
-import { NavBarItems } from '../BottomBar';
+import MenuButton from './MenuButton';
+import SearchBar from '../Header/SearchBar';
+import MenuItem from './MenuItem';
+import { NavBarItems } from '../Header/BottomBar';
 
 const Nav = styled.nav`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
@@ -29,7 +29,8 @@ const Background = styled.div`
   left: 0;
   bottom: 0;
   width: 300px;
-  height: 100vmax; 
+  height: 100vmax;
+  background-color: ${({ theme }) => theme.colors.headerMainBg};
 `;
 
 const SearchDiv = styled.div`
@@ -80,36 +81,34 @@ const variants = {
   },
 };
 
+const sidebar = {
+  open: () => ({
+    clipPath: 'circle(120vmax at 40px 40px)',
+    transition: {
+      type: 'spring',
+      stiffness: 60,
+      restDelta: 2,
+    },
+  }),
+  closed: {
+    clipPath: 'circle(30px at 40px 40px)',
+    transition: {
+      type: 'spring',
+      stiffness: 400,
+      damping: 40,
+    },
+  },
+};
+
 const MainItems = [
-  { itemName: 'Minha Conta', href: '/' },
-  { itemName: 'Carrinho', href: '/' },
+  { name: 'Minha Conta', href: '/' },
+  { name: 'Carrinho', href: '/' },
 ];
 
 const categorieItems = NavBarItems;
 
 export default function SideMenu() {
   const [isOpen, toggleOpen] = useCycle(false, true);
-  const themeContext = useContext(ThemeContext);
-
-  const sidebar = {
-    open: () => ({
-      clipPath: 'circle(120vmax at 40px 40px)',
-      transition: {
-        type: 'spring',
-        stiffness: 60,
-        restDelta: 2,
-      },
-      backgroundColor: themeContext.colors.headerMainBg,
-    }),
-    closed: {
-      clipPath: 'circle(30px at 40px 40px)',
-      transition: {
-        type: 'spring',
-        stiffness: 400,
-        damping: 40,
-      },
-    },
-  };
 
   return (
     <Nav as={motion.nav} initial={false} animate={isOpen ? 'open' : 'closed'}>
@@ -120,18 +119,18 @@ export default function SideMenu() {
       <UL as={motion.ul} variants={ulVariants} display={isOpen ? 'colum' : 'none'}>
         {MainItems.map((item) => (
           <MenuItem
-            itemName={item.itemName}
-            key={item.itemName}
-            href={item.href}
+            name={item.name}
+            key={item.name}
+            href="/"
             variants={variants}
           />
         ))}
         <motion.hr className="menusDivisor" variants={variants} />
         {categorieItems.map((item) => (
           <MenuItem
-            itemName={item.itemName}
-            key={item.itemName}
-            href={item.href}
+            name={item.name}
+            key={item.name}
+            href={`/categorie/${item.slug}`}
             variants={variants}
           />
         ))}

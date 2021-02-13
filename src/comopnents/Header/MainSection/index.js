@@ -31,6 +31,7 @@ const HomeLink = styled.span`
   width: 30%;
   img{
     width: 100%;
+    cursor: pointer;
   }
   @media screen and (max-width: 900px) {
     img{
@@ -121,9 +122,7 @@ export default function MainSection() {
     <Container>
       <HomeLink>
         <Link href="/">
-          <a href="/">
-            <img src="/logo-nome.svg" alt="Logo da Senhora Baforada" />
-          </a>
+          <img src="/logo-nome.svg" alt="Logo da Senhora Baforada" />
         </Link>
       </HomeLink>
       <SearchDiv>
@@ -143,7 +142,7 @@ export default function MainSection() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <button type="button">
+          <button className="Cart" type="button">
             <img src={cartIconRef} className="cart-icon" alt="Icone do botão de carrinho" />
             <ItemCounter display={totalItems === 0 ? 'none' : 'inline'}>
               {totalItems}

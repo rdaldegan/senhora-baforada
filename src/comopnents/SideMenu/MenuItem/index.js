@@ -25,7 +25,7 @@ const Li = styled.li`
   }
 `;
 
-function MenuItem({ itemName, href, variants }) {
+function MenuItem({ name, href, variants }) {
   return (
     <Li
       as={motion.li}
@@ -34,9 +34,7 @@ function MenuItem({ itemName, href, variants }) {
       whileTap={{ scale: 0.95 }}
     >
       <Link href={href}>
-        <a href={href}>
-          {itemName}
-        </a>
+        {name}
       </Link>
     </Li>
   );

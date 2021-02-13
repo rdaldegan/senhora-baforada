@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import TopBar from './TopBar';
-import SideMenu from './SideMenu';
 import MainSection from './MainSection';
 import BottomBar from './BottomBar';
 
@@ -26,13 +25,10 @@ const Background = styled.div`
 
 export default function Header() {
   return (
-    <>
-      <Background>
-        <TopBar />
-        <MainSection />
-        <BottomBar />
-      </Background>
-      <SideMenu />
-    </>
+    <Background>
+      <TopBar />
+      <MainSection />
+      <BottomBar />
+    </Background>
   );
 }

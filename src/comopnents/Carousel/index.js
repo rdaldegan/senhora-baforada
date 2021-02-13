@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Carousel from 'react-elastic-carousel';
 import styled from 'styled-components';
 
@@ -85,12 +85,6 @@ export default function HomeCarousel() {
         preventDefaultTouchmoveEvent
         showArrows={false}
         pagination={false}
-        onNextEnd={({ index }) => (
-          index + 1 === carouselItems.length
-          && setTimeout(() => {
-            carouselRef.current.goTo(0);
-          }, carouselTimeStep - carouselTransitionSpeed)
-        )}
       >
         {carouselItems.map((item) => (
           <CarouselItem key={item.id}>

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const Container = styled.div`
   width: 100%;
@@ -33,15 +34,20 @@ const Nav = styled.nav`
     color: ${({ theme }) => theme.colors.headerMainButtons};
     font-weight: bolder;
     cursor: pointer;
+  }
+  a{
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.headerMainButtons};
+  }
 `;
 
 export const NavBarItems = [
-  { itemName: 'Sedas', href: '/' },
-  { itemName: 'Bongs', href: '/' },
-  { itemName: 'Tabacos', href: '/' },
-  { itemName: 'Cachimbos', href: '/' },
-  { itemName: 'Acessórios', href: '/' },
-  { itemName: 'Todas as Categorias', href: '/' },
+  { slug: 'sedas', name: 'Sedas' },
+  { slug: 'bongs', name: 'Bongs' },
+  { slug: 'tabacos', name: 'Tabacos' },
+  { slug: 'cachimbos', name: 'Cachimbos' },
+  { slug: 'acess-rios', name: 'Acessórios' },
+  { slug: 'todas-as-categorias', name: 'Todas as Categorias' },
 ];
 
 export default function BottomBar() {
@@ -51,11 +57,13 @@ export default function BottomBar() {
         <ul>
           {NavBarItems.map((item) => (
             <motion.li
-              key={item.itemName}
+              key={item.name}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
-              {item.itemName.toUpperCase()}
+              <Link href={`/categorie/${item.slug}`}>
+                {item.name.toUpperCase()}
+              </Link>
             </motion.li>
           ))}
         </ul>

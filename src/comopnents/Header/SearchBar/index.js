@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-const InputDiv = styled.div`
+const InputForm = styled.form`
   height: 40px;
   width: 100%;
   display: flex;
@@ -35,17 +36,36 @@ const SearchButton = styled.button`
 const searchIconRef = '/sherlock-holmes.svg';
 
 export default function SearchBar() {
+  const [searchText, setSearchText] = useState('');
+  const router = useRouter();
+
+  function handleChangeInput(e) {
+    setSearchText(e.target.value);
+  }
   return (
-    <InputDiv>
-      <Input type="text" placeholder="Pesquise por nomes, marcas, tipos..." />
+    <InputForm
+      onSubmit={(e) => {
+        e.preventDefault();
+        if (searchText !== '') {
+          setSearchText('');
+          router.push(`/search/${searchText}`);
+        }
+      }}
+    >
+      <Input
+        type="text"
+        placeholder="Pesquise por nomes, marcas, tipos..."
+        value={searchText}
+        onChange={(e) => handleChangeInput(e)}
+      />
       <SearchButton
-        type="button"
+        type="submit"
         as={motion.button}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 1 }}
       >
         <img src={searchIconRef} alt="Icone da barra de pesquisa" />
       </SearchButton>
-    </InputDiv>
+    </InputForm>
   );
 }

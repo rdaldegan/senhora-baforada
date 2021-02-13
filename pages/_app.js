@@ -1,34 +1,13 @@
 import React from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Head from 'next/head';
+import NProgress from 'nprogress';
+import Router from 'next/router';
+import 'nprogress/nprogress.css';
+
+import SideMenu from '../src/comopnents/SideMenu';
 import Header from '../src/comopnents/Header';
 import Footer from '../src/comopnents/Footer';
-
-const GlobalStyle = createGlobalStyle`
-  * {
-    box-sizing: border-box;
-    :focus{
-      outline: none;
-    }
-  }
-  body {
-    margin: 0;
-    padding: 0;
-    /* New styles */
-    display: flex;
-    flex-direction: column;
-    font-family: 'Lato', sans-serif;
-    
-  }
-  html, body {
-    min-height: 100vh;
-  }
-  #__next {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-`;
 
 // Tema de cores e outras propriedades css para o site
 const theme = {
@@ -53,8 +32,51 @@ const theme = {
   borderRadius: '8px',
 };
 
+const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+    :focus{
+      outline: none;
+    }
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    /* New styles */
+    display: flex;
+    flex-direction: column;
+    font-family: ${theme.fontFamily};
+    
+  }
+  html, body {
+    min-height: 100vh;
+  }
+  #__next {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #nprogress .bar {
+    background: ${theme.colors.primary} !important;
+  }
+`;
+
+NProgress.configure({
+  minimum: 0.3,
+  easing: 'ease',
+  speed: 800,
+  showSpinner: false,
+});
+
 // eslint-disable-next-line react/prop-types
 export default function App({ Component, pageProps }) {
+  Router.events.on('routeChangeStart', () => {
+    NProgress.start();
+  });
+  Router.events.on('routeChangeComplete', () => NProgress.done());
+  Router.events.on('routeChangeError', () => NProgress.done());
   return (
     <>
       <Head>
@@ -82,6 +104,7 @@ export default function App({ Component, pageProps }) {
 
       <ThemeProvider theme={theme}>
         <GlobalStyle />
+        <SideMenu />
         <Header />
         <Component {...pageProps} />
         <Footer />

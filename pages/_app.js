@@ -30,6 +30,7 @@ const theme = {
     wppLink: 'https://web.whatsapp.com/send?phone=5561983157060',
   },
   borderRadius: '8px',
+  maxWidth: '1600px',
 };
 
 const GlobalStyle = createGlobalStyle`

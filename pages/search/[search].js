@@ -8,10 +8,16 @@ import ProductCard from '../../src/comopnents/ProductCard';
 
 const Container = styled.div`
   width: 80%;
+  max-width: ${({ theme }) => theme.maxWidth};
+  min-height: 1500px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+
+  @media screen and (max-width: 590px){
+    min-height: 550px;
+  }
 
   header{
     width: 100%;

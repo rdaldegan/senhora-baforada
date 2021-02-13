@@ -5,6 +5,7 @@ import ProductCard from '../ProductCard';
 
 const Container = styled.div`
   width: 80%;
+  max-width: ${({ theme }) => theme.maxWidth};
   margin: 50px 0px;
 `;
 

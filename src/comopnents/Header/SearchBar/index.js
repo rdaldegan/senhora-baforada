@@ -48,7 +48,7 @@ export default function SearchBar() {
         e.preventDefault();
         if (searchText !== '') {
           setSearchText('');
-          router.push(`/search/${searchText}`);
+          router.push(`/find?search=${searchText}`);
         }
       }}
     >

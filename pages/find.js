@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
-import Commerce from '@chec/commerce.js';
+import commerce from '../src/commerce';
 
 import ProductCard from '../src/comopnents/ProductCard';
 
@@ -63,16 +63,13 @@ const PagesControler = styled.div`
 `;
 
 export async function getStaticProps() {
-  const commerce = new Commerce(process.env.REACT_APP_COMMERCE_PUBLIC_KEY, true);
-
-  const data = await commerce.products.list({
-    category_slug: 'todas-as-categorias',
-  });
+  const data = await commerce.products.list();
 
   return {
     props: {
       data,
     },
+    revalidate: 10800,
   };
 }
 

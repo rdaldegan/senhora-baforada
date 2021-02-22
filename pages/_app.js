@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Head from 'next/head';
 import NProgress from 'nprogress';
 import Router from 'next/router';
 import 'nprogress/nprogress.css';
+
+import commerce from '../src/commerce';
 
 import SideMenu from '../src/comopnents/SideMenu';
 import Header from '../src/comopnents/Header';
@@ -78,12 +80,24 @@ export default function App({ Component, pageProps }) {
   });
   Router.events.on('routeChangeComplete', () => NProgress.done());
   Router.events.on('routeChangeError', () => NProgress.done());
+
+  /* const [cart, setCart] = useState({});
+
+  async function fetchCart() {
+    setCart(await commerce.cart.retrieve());
+  }
+
+  useEffect(() => {
+    fetchCart();
+  }, []);
+
+  console.log(cart); */
+
   return (
     <>
       <Head>
         <title>Senhora Baforada</title>
         <link rel="icon" href="/logo.svg" />
-        <title>Senhora Baforada</title>
         <meta name="title" content="Senhora Baforada" />
         <meta name="description" content="Charutos, tabacos naturais, cachimbos, rapés, acessórios e muito mais." />
 

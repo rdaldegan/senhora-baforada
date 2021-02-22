@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import Commerce from '@chec/commerce.js';
+import commerce from '../../src/commerce';
 
 import ProductCard from '../../src/comopnents/ProductCard';
 
@@ -61,8 +61,6 @@ const PagesControler = styled.div`
 `;
 
 export async function getServerSideProps(context) {
-  const commerce = new Commerce(process.env.REACT_APP_COMMERCE_PUBLIC_KEY, true);
-  
   const limit = 200;
   const query = context.params.search;
 

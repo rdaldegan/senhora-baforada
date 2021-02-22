@@ -67,13 +67,13 @@ const ItemsList = styled.div`
   }
 `;
 
-export default function ItemsCategorie({ titulo, subTitulo, listaDeProdutos }) {
+export default function ItemsCategorie({ products, header }) {
   return (
     <Container>
       <CategorieHeader>
         <header>
-          <h1>{titulo.toUpperCase()}</h1>
-          <h2>{subTitulo}</h2>
+          <h1>{header.title.toUpperCase()}</h1>
+          <h2>{header.subTitle}</h2>
         </header>
         <button type="button">
           <img src="/plus-icon.svg" alt="Botao para ver mais icones" />
@@ -81,10 +81,10 @@ export default function ItemsCategorie({ titulo, subTitulo, listaDeProdutos }) {
         </button>
       </CategorieHeader>
       <ItemsList>
-        {listaDeProdutos.slice(0, 4).map((item) => (
+        {products.data.slice(0, 4).map((product) => (
           <ProductCard
-            key={item.id}
-            product={item}
+            key={product.id}
+            product={product}
           />
         ))}
       </ItemsList>

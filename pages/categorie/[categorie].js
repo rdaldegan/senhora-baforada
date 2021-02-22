@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import Commerce from '@chec/commerce.js';
+import commerce from '../../src/commerce';
 
 import ProductCard from '../../src/comopnents/ProductCard';
 
@@ -62,8 +62,6 @@ const PagesControler = styled.div`
 `;
 
 export async function getStaticPaths() {
-  const commerce = new Commerce(process.env.REACT_APP_COMMERCE_PUBLIC_KEY, true);
-
   const response = await commerce.categories.list();
 
   const paths = response.data.map((cat) => ({
@@ -74,13 +72,11 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 
 export async function getStaticProps({ params }) {
-  const commerce = new Commerce(process.env.REACT_APP_COMMERCE_PUBLIC_KEY, true);
-
   const categorySlug = params.categorie;
 
   const data = await commerce.products.list({
@@ -92,10 +88,11 @@ export async function getStaticProps({ params }) {
       data,
       slug: categorySlug,
     },
+    revalidate: 10800,
   };
 }
 
-export default function Search({ data, slug }) {
+export default function Categorie({ data, slug }) {
   const products = data.data;
   const { meta } = data;
 
